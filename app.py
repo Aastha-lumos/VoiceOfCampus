@@ -1,15 +1,19 @@
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
 import re
 from datetime import datetime
 
 import joblib
 import pandas as pd
 import streamlit as st
+from dotenv import load_dotenv
+
+load_dotenv()
+
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+
+if not ADMIN_PASSWORD:
+    st.error("Admin password is not configured.")
+    st.stop()
 
 FEEDBACK_FILE = "feedback.csv"
 
