@@ -1,4 +1,9 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
 import re
 from datetime import datetime
 
@@ -7,7 +12,6 @@ import pandas as pd
 import streamlit as st
 
 FEEDBACK_FILE = "feedback.csv"
-ADMIN_PASSWORD = "admin@123"   # Change this password before your presentation
 
 # Load the trained model and vectorizer saved by train_model.py
 model = joblib.load("model.pkl")
